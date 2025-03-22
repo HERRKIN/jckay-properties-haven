@@ -1,10 +1,7 @@
-
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
-  return (
-    <footer className="bg-brand-navy text-white pt-16 pb-8">
+  return <footer className="bg-brand-navy text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -63,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="text-gray-300">
                 <span className="font-medium">Monday - Friday:</span>
-                <p>8:00 AM - 6:00 PM</p>
+                <p>9:00 AM - 5:00 PM</p>
               </li>
               <li className="text-gray-300">
                 <span className="font-medium">Saturday:</span>
@@ -85,11 +82,12 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-brand-lightBlue mt-1" size={20} />
-                <span className="text-gray-300">123 Construction Ave, Building City, GA 30303</span>
+                <span className="text-gray-300">3064 SE 1st Drive unit 12
+Homestead FL 33033</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-brand-lightBlue" size={20} />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors">(123) 456-7890</a>
+                <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors">+1 (305) 924-6257</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-brand-lightBlue" size={20} />
@@ -117,8 +115,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
