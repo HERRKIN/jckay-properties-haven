@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ServiceCard from '../components/ServiceCard';
@@ -19,26 +18,33 @@ import {
 import { Link } from 'react-router-dom';
 
 const Index = () => {
+  const observerRefs = useRef<HTMLElement[]>([]);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-slideUp');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
           observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
     });
     
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => {
+      el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
       observer.observe(el);
+      observerRefs.current.push(el as HTMLElement);
     });
     
     return () => {
       observer.disconnect();
+      observerRefs.current = [];
     };
   }, []);
 
@@ -69,16 +75,16 @@ const Index = () => {
         <div className="absolute inset-0 bg-brand-navy/70"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block mb-4 py-1 px-3 rounded-full bg-brand-lightBlue/20 backdrop-blur-sm text-white border border-brand-lightBlue/30 animate-fadeIn">
+            <div className="inline-block mb-4 py-1 px-3 rounded-full bg-brand-lightBlue/20 backdrop-blur-sm text-white border border-brand-lightBlue/30">
               <span className="text-sm font-medium">Professional Property Solutions</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slideUp" style={{ animationDelay: '100ms' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Your Trusted Partner for Complete <span className="text-brand-lightBlue">Property Solutions</span>
             </h1>
-            <p className="text-xl text-white/80 mb-8 animate-slideUp" style={{ animationDelay: '200ms' }}>
+            <p className="text-xl text-white/80 mb-8">
               From remodeling and construction to maintenance and repairs, we deliver exceptional results for all your residential and commercial needs.
             </p>
-            <div className="flex flex-wrap gap-4 animate-slideUp" style={{ animationDelay: '300ms' }}>
+            <div className="flex flex-wrap gap-4">
               <Link to="/contact" className="btn-primary">
                 Get Free Quote
               </Link>
@@ -93,7 +99,7 @@ const Index = () => {
       {/* Services Overview */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 animate-on-scroll">
             <h2 className="section-title centered">Our Comprehensive Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
               We offer a wide range of professional services to meet all your property needs, delivered with expertise and quality craftsmanship.
@@ -134,14 +140,14 @@ const Index = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-on-scroll opacity-0">
+            <div className="animate-on-scroll">
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
                 alt="Professional team" 
                 className="rounded-lg shadow-xl object-cover h-full"
               />
             </div>
-            <div className="animate-on-scroll opacity-0">
+            <div className="animate-on-scroll">
               <h2 className="section-title">Why Choose JCKAY GROUP</h2>
               <p className="text-lg text-gray-600 mb-8">
                 At JCKAY GROUP, we pride ourselves on delivering exceptional service and quality workmanship on every project. Our experienced team is committed to exceeding your expectations.
@@ -202,7 +208,7 @@ const Index = () => {
       {/* Featured Projects */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 animate-on-scroll">
             <h2 className="section-title centered">Featured Projects</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
               Take a look at some of our recent projects showcasing our expertise and quality workmanship.
@@ -211,13 +217,14 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                image={project.image}
-                title={project.title}
-                category={project.category}
-                index={index}
-              />
+              <div key={index} className="animate-on-scroll" style={{ transitionDelay: `${index * 100}ms` }}>
+                <ProjectCard
+                  image={project.image}
+                  title={project.title}
+                  category={project.category}
+                  index={index}
+                />
+              </div>
             ))}
           </div>
           
@@ -259,7 +266,7 @@ const Index = () => {
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 animate-on-scroll">
             <h2 className="section-title centered">What Our Clients Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-6">
               Don't just take our word for it. Here's what our satisfied clients have to say about our services.
@@ -267,7 +274,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass-card p-8 animate-on-scroll opacity-0">
+            <div className="glass-card p-8 animate-on-scroll">
               <div className="flex items-center mb-4">
                 {[1, 2, 3, 4, 5].map(star => (
                   <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -289,7 +296,7 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="glass-card p-8 animate-on-scroll opacity-0">
+            <div className="glass-card p-8 animate-on-scroll">
               <div className="flex items-center mb-4">
                 {[1, 2, 3, 4, 5].map(star => (
                   <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -311,7 +318,7 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="glass-card p-8 animate-on-scroll opacity-0">
+            <div className="glass-card p-8 animate-on-scroll">
               <div className="flex items-center mb-4">
                 {[1, 2, 3, 4, 5].map(star => (
                   <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -340,7 +347,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="animate-on-scroll opacity-0">
+            <div className="animate-on-scroll">
               <h2 className="section-title">Contact Us Today</h2>
               <p className="text-lg text-gray-600 mb-8">
                 Ready to start your project? Have questions about our services? We're here to help! Get in touch with us today.
@@ -391,7 +398,7 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="animate-on-scroll opacity-0">
+            <div className="animate-on-scroll">
               <div className="glass-card p-8">
                 <h3 className="text-2xl font-bold mb-6">Get a Free Quote</h3>
                 <form>
@@ -470,3 +477,4 @@ const Index = () => {
 };
 
 export default Index;
+

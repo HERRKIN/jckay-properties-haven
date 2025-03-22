@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectCardProps {
   image: string;
@@ -18,9 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, category, index
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ 
-        animationDelay: `${index * 100}ms`,
-        opacity: 0,
-        animation: `fadeIn 0.5s ease-in-out ${index * 100}ms forwards`
+        opacity: 1 // Set initial opacity to 1 to prevent the card from being invisible
       }}
     >
       <img 
