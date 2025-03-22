@@ -1,12 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Phone, Mail, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -15,19 +12,16 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  return (
-    <>
+  return <>
       <div className="bg-brand-navy text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="hidden md:flex space-x-6">
             <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
               <Phone size={16} />
-              <span>(123) 456-7890</span>
+              <span>+1 (305) 924-6257</span>
             </a>
             <a href="mailto:info@jckaygroup.com" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
               <Mail size={16} />
@@ -82,51 +76,26 @@ const Navbar = () => {
       </header>
       
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-20 md:hidden animate-fadeIn">
+      {isMobileMenuOpen && <div className="fixed inset-0 z-40 bg-white pt-20 md:hidden animate-fadeIn">
           <div className="container mx-auto px-4">
             <nav className="flex flex-col space-y-4 mt-4">
-              <Link 
-                to="/" 
-                className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
-              <Link 
-                to="/services" 
-                className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/services" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 Services
               </Link>
-              <Link 
-                to="/projects" 
-                className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/projects" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 Projects
               </Link>
-              <Link 
-                to="/about" 
-                className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/about" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
-              <Link 
-                to="/contact" 
-                className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link to="/contact" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact
               </Link>
               <div className="pt-4">
-                <Link 
-                  to="/contact" 
-                  className="btn-primary w-full text-center block"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
+                <Link to="/contact" className="btn-primary w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
                   Get Quote
                 </Link>
               </div>
@@ -143,10 +112,7 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
-        </div>
-      )}
-    </>
-  );
+        </div>}
+    </>;
 };
-
 export default Navbar;
