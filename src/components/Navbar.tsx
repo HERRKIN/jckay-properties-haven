@@ -29,7 +29,7 @@ const Navbar = () => {
             </a>
           </div>
           <div className="text-sm md:text-base">
-            <span>Mon-Fri: 8:00AM - 6:00PM</span>
+            <span>Mon-Fri: 9:00AM - 5:00PM</span>
           </div>
         </div>
       </div>
