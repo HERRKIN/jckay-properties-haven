@@ -4,8 +4,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+// Base path: se define en el workflow (ej. VITE_BASE_PATH). En local queda '/' si no está definido.
 export default defineConfig(({ mode }) => ({
-  base: '/',
+  base: process.env.VITE_BASE_PATH ?? '/',
   server: {
     host: "::",
     port: 8080,
