@@ -62,7 +62,28 @@ This project is built with .
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/e6df5352-7fc5-4df2-a96c-0025631abad1) and click on Share -> Publish.
+### GitHub Pages (Configurado)
+
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages usando GitHub Actions.
+
+**Pasos para activar GitHub Pages:**
+
+1. Ve a la configuración del repositorio en GitHub: `Settings` → `Pages`
+2. En "Source", selecciona `GitHub Actions` (no "Deploy from a branch")
+3. El workflow se ejecutará automáticamente en cada push a `main`
+4. Una vez completado el workflow, tu sitio estará disponible en:
+   `https://HERRKIN.github.io/jckay-properties-haven/`
+
+**Nota:** Si tienes problemas con el push del workflow, asegúrate de que tu token de GitHub tenga el scope `workflow` habilitado, o haz el push manualmente desde tu terminal.
+
+### Despliegue Manual
+
+Si prefieres desplegar manualmente:
+
+```sh
+npm run build
+# Luego sube la carpeta 'dist' a GitHub Pages
+```
 
 ## I want to use a custom domain - is that possible?
 
