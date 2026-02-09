@@ -19,17 +19,17 @@ const Navbar = () => {
       <div className="bg-brand-navy text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="hidden md:flex space-x-6">
-            <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
+            <a href="tel:+13059246257" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
               <Phone size={16} />
               <span>+1 (305) 924-6257</span>
             </a>
-            <a href="mailto:info@jckaygroup.com" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
+            <a href="mailto:jckaygroup@gmail.com" className="flex items-center gap-2 hover:text-brand-lightBlue transition-colors">
               <Mail size={16} />
-              <span>info@jckaygroup.com</span>
+              <span>jckaygroup@gmail.com</span>
             </a>
           </div>
           <div className="text-sm md:text-base">
-            <span>Mon-Fri: 9:00AM - 5:00PM</span>
+            <span>Lun-Sáb: 8:00AM - 6:00PM</span>
           </div>
         </div>
       </div>
@@ -59,6 +59,9 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
                 Contact
+              </Link>
+              <Link to="/faq" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
+                FAQ
               </Link>
             </nav>
             
@@ -94,6 +97,9 @@ const Navbar = () => {
               <Link to="/contact" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
                 Contact
               </Link>
+              <Link to="/faq" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
+                FAQ
+              </Link>
               <div className="pt-4">
                 <Link to="/contact" className="btn-primary w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
                   Get Quote
@@ -101,13 +107,13 @@ const Navbar = () => {
               </div>
               
               <div className="pt-4 flex flex-col space-y-4">
-                <a href="tel:+1234567890" className="flex items-center gap-2 text-gray-700">
+                <a href="tel:+13059246257" className="flex items-center gap-2 text-gray-700">
                   <Phone size={16} />
-                  <span>(123) 456-7890</span>
+                  <span>+1 (305) 924-6257</span>
                 </a>
-                <a href="mailto:info@jckaygroup.com" className="flex items-center gap-2 text-gray-700">
+                <a href="mailto:jckaygroup@gmail.com" className="flex items-center gap-2 text-gray-700">
                   <Mail size={16} />
-                  <span>info@jckaygroup.com</span>
+                  <span>jckaygroup@gmail.com</span>
                 </a>
               </div>
             </nav>

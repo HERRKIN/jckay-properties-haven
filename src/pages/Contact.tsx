@@ -36,8 +36,8 @@ const Contact = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
+        title: "¡Mensaje Enviado!",
+        description: "Gracias por contactarnos. Te responderemos pronto.",
       });
       
       // Reset form
@@ -63,10 +63,10 @@ const Contact = () => {
           }}
         ></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contáctanos</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Have questions about our services? Ready to start your project? 
-            Get in touch with us today and let's bring your vision to life.
+            ¿Tienes preguntas sobre nuestros servicios? ¿Listo para comenzar tu proyecto? 
+            Contáctanos hoy y hagamos realidad tu visión.
           </p>
         </div>
       </section>
@@ -76,10 +76,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="section-title">Get In Touch</h2>
+              <h2 className="section-title">Ponte en Contacto</h2>
               <p className="text-lg text-gray-600 mb-8">
-                We're here to answer any questions you may have about our services. 
-                Reach out to us and we'll respond as soon as we can.
+                Estamos aquí para responder cualquier pregunta que tengas sobre nuestros servicios. 
+                Contáctanos y te responderemos lo antes posible.
               </p>
               
               <div className="space-y-8">
@@ -88,7 +88,7 @@ const Contact = () => {
                     <Phone className="text-brand-lightBlue" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Phone</h3>
+                    <h3 className="text-xl font-bold mb-1">Teléfono</h3>
                     <a href="tel:+13059246257" className="text-gray-600 hover:text-brand-blue transition-colors">+1 (305) 924-6257</a>
                   </div>
                 </div>
@@ -98,8 +98,8 @@ const Contact = () => {
                     <Mail className="text-brand-lightBlue" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Email</h3>
-                    <a href="mailto:info@jckaygroup.com" className="text-gray-600 hover:text-brand-blue transition-colors">info@jckaygroup.com</a>
+                    <h3 className="text-xl font-bold mb-1">Correo Electrónico</h3>
+                    <a href="mailto:jckaygroup@gmail.com" className="text-gray-600 hover:text-brand-blue transition-colors">jckaygroup@gmail.com</a>
                   </div>
                 </div>
                 
@@ -108,20 +108,8 @@ const Contact = () => {
                     <Clock className="text-brand-lightBlue" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p className="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <MapPin className="text-brand-lightBlue" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">Location</h3>
-                    <p className="text-gray-600">123 Construction Ave, Building City, GA 30303</p>
+                    <h3 className="text-xl font-bold mb-1">Horarios</h3>
+                    <p className="text-gray-600">Lunes a Sábado: 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -129,78 +117,75 @@ const Contact = () => {
             
             <div>
               <div className="glass-card p-8">
-                <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+                <h3 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
+                      <label htmlFor="name" className="block text-gray-700 mb-2">Nombre</label>
                       <input
                         type="text"
                         id="name"
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
-                        placeholder="Your Name"
+                        placeholder="Tu Nombre"
                         required
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                      <label htmlFor="email" className="block text-gray-700 mb-2">Correo</label>
                       <input
                         type="email"
                         id="email"
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
-                        placeholder="Your Email"
+                        placeholder="Tu Correo"
                         required
                       />
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="phone" className="block text-gray-700 mb-2">Phone</label>
+                    <label htmlFor="phone" className="block text-gray-700 mb-2">Teléfono</label>
                     <input
                       type="tel"
                       id="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
-                      placeholder="Your Phone Number"
+                      placeholder="Tu Número de Teléfono"
                     />
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="service" className="block text-gray-700 mb-2">Service Needed</label>
+                    <label htmlFor="service" className="block text-gray-700 mb-2">Servicio Necesario</label>
                     <select
                       id="service"
                       value={formData.service}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
                     >
-                      <option value="">Select a Service</option>
-                      <option value="remodeling">Remodeling</option>
-                      <option value="construction">Construction</option>
-                      <option value="painting">Painting</option>
-                      <option value="flooring">Flooring</option>
-                      <option value="plumbing">Plumbing</option>
-                      <option value="electrical">Electrical</option>
-                      <option value="fencing">Fencing</option>
-                      <option value="pergola">Pergola Installation</option>
-                      <option value="maintenance">Maintenance</option>
-                      <option value="other">Other</option>
+                      <option value="">Selecciona un Servicio</option>
+                      <option value="concrete">Acabados de Concreto</option>
+                      <option value="fence">Cercas de Madera</option>
+                      <option value="driveway">Driveway</option>
+                      <option value="patio">Patio/Terraza</option>
+                      <option value="sidewalk">Aceras</option>
+                      <option value="repair">Reparaciones</option>
+                      <option value="other">Otro</option>
                     </select>
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
+                    <label htmlFor="message" className="block text-gray-700 mb-2">Mensaje</label>
                     <textarea
                       id="message"
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
-                      placeholder="Tell us about your project"
+                      placeholder="Cuéntanos sobre tu proyecto"
                       required
                     ></textarea>
                   </div>
@@ -221,7 +206,7 @@ const Contact = () => {
                     ) : (
                       <>
                         <Send size={18} />
-                        Submit Request
+                        Enviar Solicitud
                       </>
                     )}
                   </button>

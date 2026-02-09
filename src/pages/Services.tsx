@@ -5,72 +5,61 @@ import Footer from '../components/Footer';
 import ServiceCard from '../components/ServiceCard';
 import { 
   Building, 
-  PaintRoller, 
-  Wrench, 
-  ShowerHead,
-  Lightbulb,
-  Boxes,
-  Paintbrush,
+  TreePine,
   Hammer,
-  Scissors,
-  TreePine
+  Wrench,
+  CheckSquare
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const services = [
+  const concreteServices = [
     {
       icon: <Building size={28} />,
-      title: "Construction & Remodeling",
-      description: "Expert remodeling and construction for residential and commercial spaces, delivering quality results on time and on budget."
+      title: "Driveways y Entradas",
+      description: "Resistencia garantizada para tus vehículos. Creamos entradas duraderas que soportan el peso y el uso constante."
     },
     {
-      icon: <PaintRoller size={28} />,
-      title: "Interior & Exterior Painting",
-      description: "Professional painting services to transform your spaces with premium materials and meticulous attention to detail."
+      icon: <Building size={28} />,
+      title: "Patios y Terrazas",
+      description: "Diseños en concreto estampado o pulido. Transformamos tus espacios exteriores en áreas funcionales y estéticas."
+    },
+    {
+      icon: <Building size={28} />,
+      title: "Aceras y Caminos",
+      description: "Seguridad y flujo para tu propiedad. Diseñamos caminos que guían y conectan los espacios de tu hogar."
     },
     {
       icon: <Wrench size={28} />,
-      title: "Maintenance & Repairs",
-      description: "Comprehensive maintenance and repair services to keep your property in optimal condition year-round."
-    },
+      title: "Reparaciones y Mantenimiento",
+      description: "Alargamos la vida de tus superficies. Servicios de reparación y mantenimiento para mantener tu concreto en perfecto estado."
+    }
+  ];
+
+  const fenceServices = [
     {
-      icon: <Boxes size={28} />,
-      title: "Pergola Installation",
-      description: "Custom design and installation of beautiful, durable pergolas to enhance your outdoor living spaces."
+      icon: <TreePine size={28} />,
+      title: "Cercas de Privacidad",
+      description: "Estilo Cedar o Pino - El refugio perfecto para tu familia. Ofrecemos privacidad total con materiales de primera calidad."
     },
     {
       icon: <Hammer size={28} />,
-      title: "Fencing Solutions",
-      description: "Expert fabrication and installation of wood and metal fencing for security, privacy, and aesthetic appeal."
+      title: "Estilo Horizontal Moderno",
+      description: "Dale un toque contemporáneo a tu fachada. Diseños modernos que combinan funcionalidad y estética."
     },
     {
-      icon: <ShowerHead size={28} />,
-      title: "Plumbing Services",
-      description: "Professional plumbing installation, maintenance, and repairs to ensure your property's plumbing systems function flawlessly."
+      icon: <Building size={28} />,
+      title: "Portones Personalizados",
+      description: "Funcionalidad con acabados de primera. Portones diseñados según tus necesidades específicas."
     },
     {
-      icon: <Lightbulb size={28} />,
-      title: "Electrical Services",
-      description: "Installation and maintenance of electrical and electronic systems for homes and offices, ensuring safety and efficiency."
-    },
-    {
-      icon: <Paintbrush size={28} />,
-      title: "Drywall Installation & Repair",
-      description: "Expert drywall installation and repair for ceilings and walls, delivering smooth, flawless surfaces."
-    },
-    {
-      icon: <TreePine size={28} />,
-      title: "Landscaping & Lawn Care",
-      description: "Comprehensive landscaping services including placing and cutting grass to enhance your property's curb appeal."
-    },
-    {
-      icon: <Scissors size={28} />,
-      title: "Sidewalk & Window Cleaning",
-      description: "Thorough cleaning services for sidewalks, driveways, and windows to maintain your property's appearance."
+      icon: <Wrench size={28} />,
+      title: "Tratamiento y Sellado",
+      description: "Protegemos la madera contra el clima y la humedad. Mantenimiento profesional para prolongar la vida de tu cerca."
     }
   ];
 
@@ -86,19 +75,56 @@ const Services = () => {
           }}
         ></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Professional Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Nuestros Servicios</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            JCKAY GROUP delivers a comprehensive range of property solutions with 
-            expertise, quality craftsmanship, and exceptional customer service.
+            Somos expertos en acabados de concreto y cercas de madera personalizadas. 
+            Calidad que resiste el tiempo en propiedad.
           </p>
         </div>
       </section>
       
-      {/* Services Grid */}
+      {/* Concrete Services */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Building className="text-brand-lightBlue" size={40} />
+              <h2 className="text-3xl md:text-4xl font-bold">Soluciones en Concreto</h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Creamos superficies funcionales y estéticas para tu propiedad
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {concreteServices.map((service, index) => (
+              <ServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                delay={index * 100}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Fence Services */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <TreePine className="text-brand-lightBlue" size={40} />
+              <h2 className="text-3xl md:text-4xl font-bold">Cercas de Madera</h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Privacidad, seguridad y belleza natural para tu hogar
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {fenceServices.map((service, index) => (
               <ServiceCard
                 key={index}
                 icon={service.icon}
@@ -112,15 +138,15 @@ const Services = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-brand-blue">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Contact us today for a free consultation and quote. Our team is ready to bring your vision to life.
+          <h2 className="text-3xl font-bold text-white mb-6">¿Listo para comenzar tu proyecto?</h2>
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            Contáctanos hoy para una consulta y presupuesto gratuito. Nuestro equipo está listo para hacer realidad tu visión.
           </p>
-          <a href="/contact" className="btn-primary">
-            Get Free Quote
-          </a>
+          <Link to="/contact" className="btn-primary bg-white text-brand-blue hover:bg-white/90">
+            Presupuesto Gratis
+          </Link>
         </div>
       </section>
       

@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="text-brand-lightBlue"> GROUP</span>
             </div>
             <p className="text-gray-300 mb-6">
-              Your trusted partner for comprehensive property solutions, specializing in the remodeling, construction, and maintenance of both residential and commercial spaces.
+              Expertos en acabados de concreto y cercas de madera personalizadas. Calidad que resiste el tiempo en propiedad.
             </p>
             <div className="flex items-center space-x-4">
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-lightBlue transition-colors">
@@ -48,6 +48,9 @@ const Footer = () => {
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
               </li>
+              <li>
+                <Link to="/faq" className="text-gray-300 hover:text-white transition-colors">FAQ</Link>
+              </li>
             </ul>
           </div>
           
@@ -59,16 +62,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li className="text-gray-300">
-                <span className="font-medium">Monday - Friday:</span>
-                <p>9:00 AM - 5:00 PM</p>
-              </li>
-              <li className="text-gray-300">
-                <span className="font-medium">Saturday:</span>
-                <p>9:00 AM - 4:00 PM</p>
-              </li>
-              <li className="text-gray-300">
-                <span className="font-medium">Sunday:</span>
-                <p>Closed</p>
+                <span className="font-medium">Lunes a Sábado:</span>
+                <p>8:00 AM - 6:00 PM</p>
               </li>
             </ul>
           </div>
@@ -87,11 +82,11 @@ Homestead FL 33033</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-brand-lightBlue" size={20} />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors">+1 (305) 924-6257</a>
+                <a href="tel:+13059246257" className="text-gray-300 hover:text-white transition-colors">+1 (305) 924-6257</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-brand-lightBlue" size={20} />
-                <a href="mailto:info@jckaygroup.com" className="text-gray-300 hover:text-white transition-colors">info@jckaygroup.com</a>
+                <a href="mailto:jckaygroup@gmail.com" className="text-gray-300 hover:text-white transition-colors">jckaygroup@gmail.com</a>
               </li>
             </ul>
           </div>

@@ -11,49 +11,58 @@ const Projects = () => {
 
   const projects = [
     {
-      image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Modern Kitchen Renovation',
-      category: 'Interior Remodeling'
+      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      title: 'Cerca de Privacidad en Cedro',
+      category: 'Cercas de Madera',
+      description: 'Instalación de cerca de privacidad estilo tradicional en madera de cedro, proporcionando seguridad y privacidad total para la propiedad.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Custom Wooden Fence Installation',
-      category: 'Exterior Construction'
+      image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      title: 'Driveway de Concreto Estampado',
+      category: 'Acabados de Concreto',
+      description: 'Driveway con diseño estampado que combina resistencia y estética, transformando la entrada de la propiedad.'
     },
     {
       image: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Residential House Painting',
-      category: 'Painting Services'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Backyard Pergola Construction',
-      category: 'Outdoor Living'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Modern Bathroom Remodel',
-      category: 'Interior Remodeling'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1625602812206-5ec545ca1231?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Commercial Space Renovation',
-      category: 'Commercial Construction'
+      title: 'Cerca Horizontal Moderna',
+      category: 'Cercas de Madera',
+      description: 'Diseño contemporáneo con tablas horizontales que dan un toque moderno y elegante a la fachada de la propiedad.'
     },
     {
       image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Custom Sidewalk Installation',
-      category: 'Exterior Construction'
+      title: 'Patio con Concreto Pulido',
+      category: 'Acabados de Concreto',
+      description: 'Patio exterior con acabado pulido que ofrece una superficie lisa y moderna, perfecta para áreas de entretenimiento.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      title: 'Portón Personalizado en Madera',
+      category: 'Cercas de Madera',
+      description: 'Portón diseñado a medida con acabados de primera calidad, combinando funcionalidad y diseño personalizado.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      title: 'Terraza con Concreto Estampado',
+      category: 'Acabados de Concreto',
+      description: 'Terraza con diseño estampado que imita texturas naturales, creando un espacio exterior único y duradero.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1625602812206-5ec545ca1231?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      title: 'Aceras y Caminos de Concreto',
+      category: 'Acabados de Concreto',
+      description: 'Sistema de caminos y aceras que conectan los espacios de la propiedad con seguridad y flujo perfecto.'
     },
     {
       image: 'https://images.unsplash.com/photo-1606946184955-a8cb11e66336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Office Space Renovation',
-      category: 'Commercial Remodeling'
+      title: 'Cerca de Pino Tratado a Presión',
+      category: 'Cercas de Madera',
+      description: 'Cerca de privacidad en pino tratado a presión, opción duradera y económica con tratamiento contra la humedad.'
     },
     {
       image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      title: 'Premium Flooring Installation',
-      category: 'Flooring Services'
+      title: 'Reparación y Sellado de Concreto',
+      category: 'Acabados de Concreto',
+      description: 'Servicio de reparación y sellado profesional que alarga la vida útil de las superficies de concreto existentes.'
     }
   ];
 
@@ -69,10 +78,10 @@ const Projects = () => {
           }}
         ></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Featured Projects</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Nuestros Proyectos Destacados</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Browse through our portfolio of completed projects, showcasing our expertise, 
-            craftsmanship, and commitment to delivering exceptional results.
+            Explora nuestro portafolio de proyectos completados, mostrando nuestra experiencia en 
+            acabados de concreto y cercas de madera personalizadas.
           </p>
         </div>
       </section>
@@ -88,6 +97,7 @@ const Projects = () => {
                   title={project.title}
                   category={project.category}
                   index={index}
+                  description={project.description}
                 />
               </div>
             ))}
@@ -98,12 +108,12 @@ const Projects = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <h2 className="text-3xl font-bold mb-6">¿Listo para comenzar tu proyecto?</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Contact us today to discuss your vision. Let us help you bring your project to life with our expertise and quality craftsmanship.
+            Contáctanos hoy para discutir tu visión. Déjanos ayudarte a hacer realidad tu proyecto con nuestra experiencia y calidad en acabados de concreto y cercas de madera.
           </p>
           <a href="/contact" className="btn-primary">
-            Get Free Quote
+            Presupuesto Gratis
           </a>
         </div>
       </section>
