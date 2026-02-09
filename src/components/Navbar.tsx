@@ -71,9 +71,9 @@ const Navbar = () => {
                 {t('nav.faq')}
               </Link>
               <LanguageSelector />
-              <Link to="/contact" className="btn-primary">
+              <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 {t('nav.getQuote')}
-              </Link>
+              </a>
             </nav>
 
             <div className="flex items-center gap-2 md:hidden">
@@ -109,9 +109,9 @@ const Navbar = () => {
                 {t('nav.faq')}
               </Link>
               <div className="pt-4">
-                <Link to="/contact" className="btn-primary w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
                   {t('nav.getQuote')}
-                </Link>
+                </a>
               </div>
               <div className="pt-4 flex flex-col space-y-4">
                 <a href="tel:+13059246257" className="flex items-center gap-2 text-gray-700">

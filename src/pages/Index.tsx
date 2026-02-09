@@ -70,9 +70,9 @@ const Index = () => {
               {t('index.heroSubtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary">
+              <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 {t('index.ctaQuote')}
-              </Link>
+              </a>
               <Link to="/services" className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-5 py-2.5 rounded-md font-medium transition-all hover:bg-white/20 shadow-md hover:shadow-lg">
                 {t('index.ctaServices')}
               </Link>
@@ -281,9 +281,9 @@ const Index = () => {
               {t('index.ctaSubtitle')}
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-on-scroll opacity-0">
-              <Link to="/contact" className="bg-white text-brand-blue px-6 py-3 rounded-md font-medium transition-all hover:bg-white/90 shadow-md hover:shadow-lg">
+              <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="bg-white text-brand-blue px-6 py-3 rounded-md font-medium transition-all hover:bg-white/90 shadow-md hover:shadow-lg">
                 {t('index.ctaQuote')}
-              </Link>
+              </a>
               <a href="tel:+13059246257" className="bg-transparent text-white border border-white/30 px-6 py-3 rounded-md font-medium transition-all hover:bg-white/10 shadow-md hover:shadow-lg inline-flex items-center gap-2">
                 <Phone size={20} />
                 <span>{t('index.callNow')}</span>

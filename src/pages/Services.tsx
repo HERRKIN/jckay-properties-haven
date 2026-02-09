@@ -72,7 +72,7 @@ const Services = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">{t('services.ctaTitle')}</h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">{t('services.ctaSubtitle')}</p>
-          <Link to="/contact" className="btn-primary bg-white text-brand-blue hover:bg-white/90">{t('index.ctaQuote')}</Link>
+          <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="btn-primary bg-white text-brand-blue hover:bg-white/90">{t('index.ctaQuote')}</a>
         </div>
       </section>
       <Footer />

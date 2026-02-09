@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -54,7 +53,7 @@ const Projects = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">{t('projects.ctaTitle')}</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">{t('projects.ctaSubtitle')}</p>
-          <Link to="/contact" className="btn-primary">{t('index.ctaQuote')}</Link>
+          <a href={`https://wa.me/13059246257?text=${encodeURIComponent(t('nav.whatsappMessage'))}`} target="_blank" rel="noopener noreferrer" className="btn-primary">{t('index.ctaQuote')}</a>
         </div>
       </section>
       <Footer />
