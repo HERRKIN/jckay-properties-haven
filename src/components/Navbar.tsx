@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Phone, Mail, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
+
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -15,7 +20,9 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <>
+
+  return (
+    <>
       <div className="bg-brand-navy text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="hidden md:flex space-x-6">
@@ -29,11 +36,11 @@ const Navbar = () => {
             </a>
           </div>
           <div className="text-sm md:text-base">
-            <span>Lun-Sáb: 8:00AM - 6:00PM</span>
+            <span>{t('nav.hours')}</span>
           </div>
         </div>
       </div>
-      
+
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/80 backdrop-blur-md py-4'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
@@ -43,69 +50,69 @@ const Navbar = () => {
                 <span className="text-brand-lightBlue"> GROUP</span>
               </div>
             </Link>
-            
-            <nav className="hidden md:flex space-x-8">
+
+            <nav className="hidden md:flex space-x-8 items-center">
               <Link to="/" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                Home
+                {t('nav.home')}
               </Link>
               <Link to="/services" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                Services
+                {t('nav.services')}
               </Link>
               <Link to="/projects" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                Projects
+                {t('nav.projects')}
               </Link>
               <Link to="/about" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                About
+                {t('nav.about')}
               </Link>
               <Link to="/contact" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                Contact
+                {t('nav.contact')}
               </Link>
               <Link to="/faq" className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2">
-                FAQ
+                {t('nav.faq')}
+              </Link>
+              <LanguageSelector />
+              <Link to="/contact" className="btn-primary">
+                {t('nav.getQuote')}
               </Link>
             </nav>
-            
-            <div className="hidden md:block">
-              <Link to="/contact" className="btn-primary">
-                Get Quote
-              </Link>
+
+            <div className="flex items-center gap-2 md:hidden">
+              <LanguageSelector />
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700">
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
-            
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-gray-700">
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
       </header>
-      
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && <div className="fixed inset-0 z-40 bg-white pt-20 md:hidden animate-fadeIn">
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white pt-20 md:hidden animate-fadeIn">
           <div className="container mx-auto px-4">
             <nav className="flex flex-col space-y-4 mt-4">
               <Link to="/" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                Home
+                {t('nav.home')}
               </Link>
               <Link to="/services" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                Services
+                {t('nav.services')}
               </Link>
               <Link to="/projects" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                Projects
+                {t('nav.projects')}
               </Link>
               <Link to="/about" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                About
+                {t('nav.about')}
               </Link>
               <Link to="/contact" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                Contact
+                {t('nav.contact')}
               </Link>
               <Link to="/faq" className="text-xl font-medium px-4 py-2 border-b border-gray-100 text-gray-700" onClick={() => setIsMobileMenuOpen(false)}>
-                FAQ
+                {t('nav.faq')}
               </Link>
               <div className="pt-4">
                 <Link to="/contact" className="btn-primary w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
-                  Get Quote
+                  {t('nav.getQuote')}
                 </Link>
               </div>
-              
               <div className="pt-4 flex flex-col space-y-4">
                 <a href="tel:+13059246257" className="flex items-center gap-2 text-gray-700">
                   <Phone size={16} />
@@ -118,7 +125,10 @@ const Navbar = () => {
               </div>
             </nav>
           </div>
-        </div>}
-    </>;
+        </div>
+      )}
+    </>
+  );
 };
+
 export default Navbar;
