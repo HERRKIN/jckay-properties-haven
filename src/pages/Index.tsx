@@ -369,6 +369,37 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Mapa: ubicación antes del footer */}
+      <section className="bg-gray-100 py-8 animate-on-scroll" aria-label="Mapa">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-center mb-4">{t('contact.locationTitle')}</h2>
+          <div
+            className="w-full rounded-lg overflow-hidden border border-gray-200 shadow-md mx-auto max-w-5xl"
+            style={{ minHeight: '400px', height: '400px' }}
+          >
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-80.482%2C25.463%2C-80.452%2C25.474&layer=mapnik&marker=25.4684%2C-80.477"
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: 'block' }}
+              loading="lazy"
+              title="JCKAY GROUP - 3064 SE 1st Drive, Homestead FL"
+            />
+          </div>
+          <p className="text-center mt-3 text-sm text-gray-600">
+            {t('footer.address')} ·{' '}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=3064+SE+1st+Drive+unit+12+Homestead+FL+33033"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-blue hover:underline"
+            >
+              {t('contact.openInGoogleMaps')}
+            </a>
+          </p>
+        </div>
+      </section>
       
       <Footer />
     </div>
