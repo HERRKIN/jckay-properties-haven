@@ -1,53 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useTranslation } from 'react-i18next';
-import { Phone, Mail, Clock, MapPin, Send } from 'lucide-react';
-import { useToast } from "@/components/ui/use-toast";
+import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+
+const WHATSAPP_URL = (msg: string) =>
+  `https://wa.me/13059246257?text=${encodeURIComponent(msg)}`;
 
 const Contact = () => {
   const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: t('contact.toastTitle'),
-        description: t('contact.toastDescription'),
-      });
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    }, 1500);
-  };
-
-  const serviceOptions = [
-    { value: 'concrete', labelKey: 'contactForm.concrete' as const },
-    { value: 'fence', labelKey: 'contactForm.fence' as const },
-    { value: 'driveway', labelKey: 'contactForm.driveway' as const },
-    { value: 'patio', labelKey: 'contactForm.patio' as const },
-    { value: 'sidewalk', labelKey: 'contactForm.sidewalk' as const },
-    { value: 'repair', labelKey: 'contactForm.repair' as const },
-    { value: 'other', labelKey: 'contactForm.other' as const },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,92 +23,91 @@ const Contact = () => {
           <p className="text-xl text-white/80 max-w-3xl mx-auto">{t('contact.heroSubtitle')}</p>
         </div>
       </section>
+
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="section-title">{t('contact.getInTouch')}</h2>
-              <p className="text-lg text-gray-600 mb-8">{t('contact.intro')}</p>
-              <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1"><Phone className="text-brand-lightBlue" size={24} /></div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{t('index.phone')}</h3>
-                    <a href="tel:+13059246257" className="text-gray-600 hover:text-brand-blue transition-colors">+1 (305) 924-6257</a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1"><Mail className="text-brand-lightBlue" size={24} /></div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{t('index.email')}</h3>
-                    <a href="mailto:jckaygroup@gmail.com" className="text-gray-600 hover:text-brand-blue transition-colors">jckaygroup@gmail.com</a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1"><Clock className="text-brand-lightBlue" size={24} /></div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{t('index.hoursLabel')}</h3>
-                    <p className="text-gray-600">{t('index.hoursValue')}</p>
-                  </div>
-                </div>
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="section-title text-center mb-10">{t('contact.getInTouch')}</h2>
+          <p className="text-lg text-gray-600 text-center mb-12">{t('contact.intro')}</p>
+
+          <div className="space-y-8 mb-12">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 mt-1">
+                <Phone className="text-brand-lightBlue" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-1">{t('index.phone')}</h3>
+                <a href="tel:+13059246257" className="text-gray-600 hover:text-brand-blue transition-colors">
+                  +1 (305) 924-6257
+                </a>
               </div>
             </div>
-            <div>
-              <div className="glass-card p-8">
-                <h3 className="text-2xl font-bold mb-6">{t('contact.sendMessage')}</h3>
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="name" className="block text-gray-700 mb-2">{t('index.name')}</label>
-                      <input type="text" id="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50" placeholder={t('index.namePlaceholder')} required />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-gray-700 mb-2">{t('index.email')}</label>
-                      <input type="email" id="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50" placeholder={t('index.emailPlaceholder')} required />
-                    </div>
-                  </div>
-                  <div className="mb-6">
-                    <label htmlFor="phone" className="block text-gray-700 mb-2">{t('index.phone')}</label>
-                    <input type="tel" id="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50" placeholder={t('index.phonePlaceholder')} />
-                  </div>
-                  <div className="mb-6">
-                    <label htmlFor="service" className="block text-gray-700 mb-2">{t('index.serviceNeeded')}</label>
-                    <select id="service" value={formData.service} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50">
-                      <option value="">{t('index.selectService')}</option>
-                      {serviceOptions.map((opt) => (
-                        <option key={opt.value} value={opt.value}>{t(opt.labelKey)}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-gray-700 mb-2">{t('index.message')}</label>
-                    <textarea id="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-blue/50" placeholder={t('index.messagePlaceholder')} required></textarea>
-                  </div>
-                  <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        {t('index.sending')}
-                      </>
-                    ) : (
-                      <>
-                        <Send size={18} />
-                        {t('index.submit')}
-                      </>
-                    )}
-                  </button>
-                </form>
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 mt-1">
+                <Mail className="text-brand-lightBlue" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-1">{t('index.email')}</h3>
+                <a href="mailto:jckaygroup@gmail.com" className="text-gray-600 hover:text-brand-blue transition-colors">
+                  jckaygroup@gmail.com
+                </a>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 mt-1">
+                <Clock className="text-brand-lightBlue" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-1">{t('index.hoursLabel')}</h3>
+                <p className="text-gray-600">{t('index.hoursValue')}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 mt-1">
+                <MapPin className="text-brand-lightBlue" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-1">{t('contact.addressLabel')}</h3>
+                <p className="text-gray-600">{t('footer.address')}</p>
               </div>
             </div>
           </div>
+
+          <div className="text-center">
+            <a
+              href={WHATSAPP_URL(t('nav.whatsappMessage'))}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#20BD5A] transition-colors shadow-lg"
+            >
+              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              {t('contact.writeWhatsApp')}
+            </a>
+          </div>
         </div>
       </section>
+
       <section className="py-0">
         <div className="w-full h-96 bg-gray-200">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212270.7411321579!2d-84.56068690459304!3d33.767633772513685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sAtlanta%2C%20GA!5e0!3m2!1sen!2sus!4v1647443744986!5m2!1sen!2sus" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="JCKAY GROUP location"></iframe>
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-80.482%2C25.463%2C-80.452%2C25.474&layer=mapnik&marker=25.4684%2C-80.477&zoom=15"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            title="JCKAY GROUP - 3064 SE 1st Drive, Homestead FL"
+          />
+          <p className="text-center py-2 text-sm text-gray-500 bg-gray-100">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=3064+SE+1st+Drive+unit+12+Homestead+FL+33033"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-blue hover:underline"
+            >
+              {t('contact.openInGoogleMaps')}
+            </a>
+          </p>
         </div>
       </section>
       <Footer />

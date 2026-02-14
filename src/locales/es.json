@@ -148,7 +148,10 @@
     "intro": "Estamos aquí para responder cualquier pregunta que tengas sobre nuestros servicios. Contáctanos y te responderemos lo antes posible.",
     "sendMessage": "Envíanos un Mensaje",
     "toastTitle": "¡Mensaje Enviado!",
-    "toastDescription": "Gracias por contactarnos. Te responderemos pronto."
+    "toastDescription": "Gracias por contactarnos. Te responderemos pronto.",
+    "writeWhatsApp": "Escríbenos por WhatsApp",
+    "addressLabel": "Dirección",
+    "openInGoogleMaps": "Abrir en Google Maps"
   },
   "contactForm": {
     "concrete": "Acabados de Concreto",

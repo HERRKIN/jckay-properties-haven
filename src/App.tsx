@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
+import WhatsAppFloating from "./components/WhatsAppFloating";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <HashRouter>
+        <WhatsAppFloating />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
