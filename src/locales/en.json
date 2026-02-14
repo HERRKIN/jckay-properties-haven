@@ -134,8 +134,12 @@
     "project7Desc": "Pathway and sidewalk system connecting property spaces with safety and perfect flow.",
     "project8Title": "Pressure-Treated Pine Fence",
     "project8Desc": "Privacy fence in pressure-treated pine, a durable and economical option with moisture-resistant treatment.",
-    "project9Title": "Concrete Repair & Sealing",
-    "project9Desc": "Professional repair and sealing service that extends the life of existing concrete surfaces."
+"project9Title": "Concrete Repair & Sealing",
+    "project9Desc": "Professional repair and sealing service that extends the life of existing concrete surfaces.",
+    "galleryWorkTitle": "Work in Progress",
+    "galleryWorkDesc": "Concrete and fence projects in different phases: preparation, pouring, and finishing.",
+    "backToProjects": "Back to Projects",
+    "galleryTitle": "Project gallery"
   },
   "contact": {
     "heroTitle": "Contact Us",

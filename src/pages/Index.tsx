@@ -15,6 +15,7 @@ import {
   TreePine
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PROJECTS, imgPath } from '../data/projectsData';
 
 const Index = () => {
   const { t } = useTranslation();
@@ -48,18 +49,14 @@ const Index = () => {
     };
   }, []);
 
-  const featuredProjects = [
-    { image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project3Title' as const, categoryKey: 'projects.categoryFence' as const },
-    { image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project2Title' as const, categoryKey: 'projects.categoryConcrete' as const },
-    { image: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project4Title' as const, categoryKey: 'projects.categoryConcrete' as const },
-  ];
+  const featuredProjects = PROJECTS.slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative h-[85vh] bg-cover bg-center flex items-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')" }}>
+      {/* Hero Section - foto real: driveway de concreto y portón */}
+      <section className="relative h-[85vh] bg-cover bg-center flex items-center" style={{ backgroundImage: `url('${import.meta.env.BASE_URL || '/'}images/projects/concrete-driveway-gate.png')` }}>
         <div className="absolute inset-0 bg-brand-navy/70"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -248,14 +245,14 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
-              <div key={index} className="animate-on-scroll" style={{ transitionDelay: `${index * 100}ms` }}>
+              <Link key={project.id} to={`/projects/${project.id}`} className="block animate-on-scroll" style={{ transitionDelay: `${index * 100}ms` }}>
                 <ProjectCard
-                  image={project.image}
+                  image={imgPath(project.gallery[0])}
                   title={t(project.titleKey)}
                   category={t(project.categoryKey)}
                   index={index}
                 />
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-12">

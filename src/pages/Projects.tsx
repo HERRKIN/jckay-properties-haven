@@ -1,26 +1,16 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
 import { useTranslation } from 'react-i18next';
+import { PROJECTS, imgPath } from '../data/projectsData';
 
 const Projects = () => {
   const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const projectKeys = [
-    { image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project1Title' as const, categoryKey: 'projects.categoryFence' as const, descKey: 'projects.project1Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project2Title' as const, categoryKey: 'projects.categoryConcrete' as const, descKey: 'projects.project2Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project3Title' as const, categoryKey: 'projects.categoryFence' as const, descKey: 'projects.project3Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project4Title' as const, categoryKey: 'projects.categoryConcrete' as const, descKey: 'projects.project4Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project5Title' as const, categoryKey: 'projects.categoryFence' as const, descKey: 'projects.project5Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project6Title' as const, categoryKey: 'projects.categoryConcrete' as const, descKey: 'projects.project6Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1625602812206-5ec545ca1231?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project7Title' as const, categoryKey: 'projects.categoryConcrete' as const, descKey: 'projects.project7Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1606946184955-a8cb11e66336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project8Title' as const, categoryKey: 'projects.categoryFence' as const, descKey: 'projects.project8Desc' as const },
-    { image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80', titleKey: 'projects.project9Title' as const, categoryKey: 'projects.categoryConcrete' as const, descKey: 'projects.project9Desc' as const },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -35,16 +25,20 @@ const Projects = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectKeys.map((project, index) => (
-              <div key={index} className="mb-8" style={{ opacity: 1 }}>
+            {PROJECTS.map((project, index) => (
+              <Link
+                key={project.id}
+                to={`/projects/${project.id}`}
+                className="block mb-8 group"
+              >
                 <ProjectCard
-                  image={project.image}
+                  image={imgPath(project.gallery[0])}
                   title={t(project.titleKey)}
                   category={t(project.categoryKey)}
                   index={index}
                   description={t(project.descKey)}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>
