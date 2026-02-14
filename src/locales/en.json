@@ -151,7 +151,8 @@
     "toastDescription": "Thank you for contacting us. We'll get back to you soon.",
     "writeWhatsApp": "Contact us on WhatsApp",
     "addressLabel": "Address",
-    "openInGoogleMaps": "Open in Google Maps"
+    "openInGoogleMaps": "Open in Google Maps",
+    "locationTitle": "Location"
   },
   "contactForm": {
     "concrete": "Concrete Finishes",

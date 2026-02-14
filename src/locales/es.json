@@ -151,7 +151,8 @@
     "toastDescription": "Gracias por contactarnos. Te responderemos pronto.",
     "writeWhatsApp": "Escríbenos por WhatsApp",
     "addressLabel": "Dirección",
-    "openInGoogleMaps": "Abrir en Google Maps"
+    "openInGoogleMaps": "Abrir en Google Maps",
+    "locationTitle": "Ubicación"
   },
   "contactForm": {
     "concrete": "Acabados de Concreto",
