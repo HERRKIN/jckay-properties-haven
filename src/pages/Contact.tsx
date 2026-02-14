@@ -89,26 +89,28 @@ const Contact = () => {
       </section>
 
       <section className="py-0">
-        <div className="w-full h-96 bg-gray-200">
+        <div className="w-full bg-gray-200" style={{ height: '400px' }}>
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-80.482%2C25.463%2C-80.452%2C25.474&layer=mapnik&marker=25.4684%2C-80.477&zoom=15"
+            src="https://www.google.com/maps?q=3064+SE+1st+Drive+unit+12+Homestead+FL+33033&z=16&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
+            allowFullScreen
             loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
             title="JCKAY GROUP - 3064 SE 1st Drive, Homestead FL"
           />
-          <p className="text-center py-2 text-sm text-gray-500 bg-gray-100">
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=3064+SE+1st+Drive+unit+12+Homestead+FL+33033"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand-blue hover:underline"
-            >
-              {t('contact.openInGoogleMaps')}
-            </a>
-          </p>
         </div>
+        <p className="text-center py-2 text-sm text-gray-500 bg-gray-100">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=3064+SE+1st+Drive+unit+12+Homestead+FL+33033"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-blue hover:underline"
+          >
+            {t('contact.openInGoogleMaps')}
+          </a>
+        </p>
       </section>
       <Footer />
     </div>
